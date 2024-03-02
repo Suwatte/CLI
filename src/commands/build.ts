@@ -67,7 +67,7 @@ export const build = async (config: config) => {
 
     // HTML
     try {
-      await generateHTML();
+      await generateHTML(config.folder);
       console.info(chalk.green.bold("Built Runners!"));
     } catch (err: any) {
       console.error(chalk.red.bold("Failed to prepare HTML"));
