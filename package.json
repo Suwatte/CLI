@@ -1,6 +1,6 @@
 {
   "name": "@suwatte/cli",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Suwatte Development Tools",
   "main": "dist/cli.js",
   "scripts": {

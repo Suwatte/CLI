@@ -3,10 +3,10 @@ import { render } from "mustache";
 import path from "path";
 
 // Function to generate HTML from template and JSON data
-export const generateHTML = async () => {
+export const generateHTML = async (folder?: string | undefined) => {
   // Set up directories and file paths
   const BASE_PATH = process.cwd();
-  const OUT_DIR = path.join(BASE_PATH, "stt");
+  const OUT_DIR = path.join(BASE_PATH, folder ?? "stt");
   const listInfo = path.join(OUT_DIR, "runners.json");
   const indexHtml = path.join(OUT_DIR, "index.html");
   const TEMPLATE_DIRECTORY = path.join(path.dirname(__dirname), "/templates");
