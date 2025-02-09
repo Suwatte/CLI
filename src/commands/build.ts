@@ -134,7 +134,12 @@ const bundleRunner = async (
 
   // Write to file
   const stream = b.bundle();
-  await fs.promises.writeFile(outPath, stream);
+  await new Promise<void>((resolve, reject) => {
+    stream
+      .pipe(fs.createWriteStream(outPath))
+      .on("finish", resolve)
+      .on("error", reject);
+  });
 };
 
 // Generates Runner List

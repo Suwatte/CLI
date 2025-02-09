@@ -27,6 +27,4 @@ program
   .option("-p, --port <string>", "Port server should run on.")
   .action(serve);
 
-program
-  .version(json.version, "-v, --version", "Display the version number")
-  .parse(process.argv);
+program.parse(process.argv);
