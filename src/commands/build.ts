@@ -4,7 +4,6 @@ import * as fsExtra from "fs-extra";
 import emulate from "@suwatte/emulator";
 import { createHash } from "crypto";
 import browserify from "browserify";
-import { stream2buffer } from "../utils/fs";
 import { evaluateEnvironment } from "../utils/evaluateEnvironment";
 import { generateHTML } from "../utils/generateHTML";
 import { compile } from "../utils/compile";
@@ -135,9 +134,7 @@ const bundleRunner = async (
 
   // Write to file
   const stream = b.bundle();
-  const buffer = await stream2buffer(stream);
-
-  await fs.promises.writeFile(outPath, buffer);
+  await fs.promises.writeFile(outPath, stream);
 };
 
 // Generates Runner List
